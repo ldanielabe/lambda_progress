@@ -1,6 +1,8 @@
 const { Client } = require("@notionhq/client");
 const { defaultFilter, _3D, content, design, assembly } = require("./filters.js");
 const { update } = require("./countUpdateGeneral.js");
+const { APIGatewayProxyEvent, APIGatewayProxyResultV2, Handler } = require('aws-lambda');
+require('lodash');
 
 async function countGeneral(filters) {
 
