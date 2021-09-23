@@ -1,17 +1,15 @@
 const { Client } = require("@notionhq/client");
 const { defaultFilter, _3D, content, design, assembly } = require("./filters.js");
 const { update } = require("./countUpdateGeneral.js");
-const { APIGatewayProxyEvent, APIGatewayProxyResultV2, Handler } = require('aws-lambda');
-require('lodash');
 
 async function countGeneral(filters) {
 
   const notion = new Client({
-    auth: "secret_3NgSmF38Njrw0nBYJSg49p2CvXCkjT00aEal1Ikzr3j",
+    auth: process.env.AUTH,
   });
 
   const response = await notion.databases.query({
-    database_id: "9621ec2b8bb4414fb4b0ac3ba8f7f16a",
+    database_id: process.env.DATABASE_ID,
     filter: {
       and: [
         ...filters,

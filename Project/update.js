@@ -5,10 +5,10 @@ async function update(area, num) {
 
 console.log(area, " result", num);
   const notion = new Client({
-    auth: 'secret_3NgSmF38Njrw0nBYJSg49p2CvXCkjT00aEal1Ikzr3j',
+    auth: process.env.AUTH,
   });
 
-let idDb = '8b654d77db954a8f8c1f012b9463af8b';
+let idDb = process.env.DATABASE_ID_UPDATE;
 
 const MyFilterResult = await notion.databases.query({
   database_id: idDb,
